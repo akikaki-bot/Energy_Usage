@@ -26,6 +26,9 @@
                 </div>
 
                 <div class="box">
+                     <button id="reload" style="float: right; width: 3; height:3;">
+                      <i class="fa-solid fa-rotate-right"></i>
+                     </button>
                      <button id="what" style="float: right; width: 3; height:3;">
                         <i class="fa-solid fa-question"></i>
                      </button>
@@ -67,11 +70,17 @@
       })
 
       $("#what").click(function() {
-        $("#wh").fadeIn(1500).show()
+        $("#wh").show(1000)
       })
 
       $("#what_close").click(function(){
-        $("#wh").fadeOut(1500)
+        $("#wh").hide(1000)
+      })
+
+      $("#reload").click(function(){
+        get_energy()
+
+        $("#reload").hide(1500).show(1500)
       })
     </script>
 </html>
