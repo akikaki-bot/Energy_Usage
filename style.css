@@ -1,0 +1,13 @@
+.i {
+    margin-right: 0.5em;
+}
+
+#whatis {
+  text-align: right;
+}
+
+#whatis button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}

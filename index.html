@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="jp">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <style type="text/css" href="./style.css"></style>
+        <script type="text/javascript" src="./get_energyusage.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preload" as="fetch" href="http://agora.ex.nii.ac.jp/earthquake/201103-eastjapan/energy/electrical-japan/info.json" crossorigin="anonymous">
+    </head>
+    <body>
+        <section class="section">
+            <div class="container has-text-centered">
+                <h1 class="title"> ⚡各地の電力使用量 </h1>
+
+                <div id="wh" class="box" style="display:none">
+                    <button id="what_close" style="float: right; width: 3; height:3;">
+                        <i class="fa-solid fa-xmark"></i>
+                     </button>
+                <h1 class="title is-5">
+                </br>
+                    <a href="http://agora.ex.nii.ac.jp">北本 朝展 @ 国立情報学研究所(NII)</a>)様が提供している<a href="http://agora.ex.nii.ac.jp/earthquake/201103-eastjapan/energy/electrical-japan/info.json">JSON形式のAPI</a>から情報を取得しております。
+                </h1>
+                </div>
+
+                <div class="box">
+                     <button id="what" style="float: right; width: 3; height:3;">
+                        <i class="fa-solid fa-question"></i>
+                     </button>
+                    <h1 class="title is-4"> <i class="fa-solid fa-bolt"></i> 東京電力管内</h1>
+                  <nav class="level">
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading title is-5"> 現在使用量 </p>
+                            <p class="title" id="tokyo_enegry_pes"> Loading...</p>
+                        </div>
+                    </div>
+                  </nav>
+                  <nav class="level">
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading title is-5"> 最大使用量 </p>
+                            <p class="title" id="tokyo_enegry_max"> Loading..</p>
+                        </div>
+                    </div>
+                  </nav>
+                  <nav class="level">
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading title is-5"> 更新時間 </p>
+                            <p class="title" id="tokyo_enegry_when"> Loading.... </p>
+                        </div>
+                    </div>
+                  </nav>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(window).on('load', function(){
+        setTimeout(function(){
+          get_energy()
+        }, 500)
+      })
+
+      $("#what").click(function() {
+        $("#wh").fadeIn(1500).show()
+      })
+
+      $("#what_close").click(function(){
+        $("#wh").fadeOut(1500)
+      })
+    </script>
+</html>
